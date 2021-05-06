@@ -1,0 +1,520 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<!DOCTYPE html>
+<html class=''>
+
+<head>
+    <script
+        src='//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js'>
+    </script>
+    <script
+        src='//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js'>
+    </script>
+    <script
+        src='//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js'>
+    </script>
+    <meta charset='UTF-8'>
+    <meta name="robots" content="noindex">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+    <link rel="mask-icon" type=""
+        href="//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
+        color="#111" />
+    <link rel="canonical" href="https://codepen.io/supah/pen/WwrJpw?limit=all&page=86&q=box" />
+
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style class="cp-pen-styles">
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 450px;
+            height: 100vh;
+            margin: 0;
+            background: -webkit-radial-gradient(ellipse farthest-corner at center top, #6aa8fa 0%, #525df7 100%);
+            background: radial-gradient(ellipse farthest-corner at center top, #64bff3 0%, #505edf 100%);
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 420px;
+            background: -webkit-linear-gradient(top, #3a404d, #181c26);
+            background: linear-gradient(to bottom, #3a404d, #181c26);
+            border-radius: 5px;
+            box-shadow: 0 7px 30px rgba(62, 9, 11, 0.3);
+        }
+
+        .header {
+            display: inline-flex;
+            padding: 10px 5px 10px 5px ;
+            font-size: 11 px;
+            text-align: center;
+
+        }
+
+        .totalscore , .task1score , .task2score , .task3score {
+            width: 100%;
+            box-sizing: border-box;   
+        }
+
+        .total , .task1 , .task2 , .task3 {
+            border-bottom: 2px solid #6aa8fa ;
+            border-left: 2px solid #6aa8fa ;
+            margin: 3px 3px 3px 3px;
+            padding: 3px 3px 3px 3px;
+            text-align: left !important;
+            border-radius: 0 0 0 3px;
+            
+        }
+
+        ol li {
+            position: relative;
+            z-index: 1;
+            font-size: 14px;
+            counter-increment: leaderboard;
+            padding: 18px 10px 18px 50px;
+            cursor: pointer;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0) scale(1, 1);
+            transform: translateZ(0) scale(1, 1);
+        }
+
+        ol li::before {
+            content: counter(leaderboard);
+            position: absolute;
+            z-index: 2;
+            top: 15px;
+            left: 15px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            color: #525df7;
+            background: #fff;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        ol li mark {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 18px 10px 18px 50px;
+            margin: 0;
+            background: none;
+            color: #fff;
+        }
+
+        ol li mark::before,
+        ol li mark::after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            bottom: -11px;
+            left: -9px;
+            border-top: 10px solid #525df7;
+            border-left: 10px solid transparent;
+            -webkit-transition: all .1s ease-in-out;
+            transition: all .1s ease-in-out;
+            opacity: 0;
+        }
+
+        ol li mark::after {
+            left: auto;
+            right: -9px;
+            border-left: none;
+            border-right: 10px solid transparent;
+        }
+
+        ol li small {
+            position: relative;
+            z-index: 2;
+            display: block;
+            text-align: right;
+        }
+
+        ol li::after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #606ff2;
+            box-shadow: 0 3px 0 rgba(0, 0, 0, 0.08);
+            -webkit-transition: all .3s ease-in-out;
+            transition: all .3s ease-in-out;
+            opacity: 0;
+        }
+
+        ol li:nth-child(1) {
+            background: #83b3f1;
+        }
+
+        ol li:nth-child(1)::after {
+            background: #83b3f1;
+        }
+
+        ol li:nth-child(2) {
+            background: #6aa8fa;
+        }
+
+        ol li:nth-child(2)::after {
+            background: #6aa8fa;
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+        }
+
+        ol li:nth-child(2) mark::before,
+        ol li:nth-child(2) mark::after {
+            border-top: 6px solid #568cd3;
+            bottom: -7px;
+        }
+
+        ol li:nth-child(3) {
+            background: #606bff;
+        }
+
+        ol li:nth-child(3)::after {
+            background: #606bff;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.11);
+        }
+
+        ol li:nth-child(3) mark::before,
+        ol li:nth-child(3) mark::after {
+            border-top: 2px solid #606bff;
+            bottom: -3px;
+        }
+
+        ol li:nth-child(4) {
+            background: #525df7;
+        }
+
+        ol li:nth-child(4)::after {
+            background: #525df7;
+            box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        ol li:nth-child(4) mark::before,
+        ol li:nth-child(4) mark::after {
+            top: -7px;
+            bottom: auto;
+            border-top: none;
+            border-bottom: 6px solid #3e47c2;
+        }
+
+        ol li:nth-child(5) {
+            background: #525df7;
+        }
+
+        ol li:nth-child(5)::after {
+            background: #525df7;
+            box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        ol li:nth-child(5) mark::before,
+        ol li:nth-child(5) mark::after {
+            top: -7px;
+            bottom: auto;
+            border-top: none;
+            border-bottom: 6px solid #3e47c2;
+        }
+
+        ol li:nth-child(6) {
+            background: #525df7;
+        }
+
+        ol li:nth-child(6)::after {
+            background: #525df7;
+            box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        ol li:nth-child(6) mark::before,
+        ol li:nth-child(6) mark::after {
+            top: -7px;
+            bottom: auto;
+            border-top: none;
+            border-bottom: 6px solid #3e47c2;
+        }
+        
+
+        ol li:nth-child(7) {
+            background: #525df7;
+            border-radius: 0 0 5px 5px;
+        }
+
+        ol li:nth-child(7)::after {
+            background: #525df7;
+            box-shadow: 0 -2.5px 0 rgba(0, 0, 0, 0.12);
+            border-radius: 0 0 10px 10px;
+        }
+
+        ol li:nth-child(7) mark::before,
+        ol li:nth-child(7) mark::after {
+            top: -9px;
+            bottom: auto;
+            border-top: none;
+            border-bottom: 8px solid #3e47c2;
+        }
+
+        ol li:hover {
+            z-index: 2;
+            overflow: visible;
+        }
+
+        ol li:hover::after {
+            opacity: 1;
+            -webkit-transform: scaleX(1.06) scaleY(1.03);
+            transform: scaleX(1.06) scaleY(1.03);
+        }
+
+        ol li:hover mark::before,
+        ol li:hover mark::after {
+            opacity: 1;
+            -webkit-transition: all .35s ease-in-out;
+            transition: all .35s ease-in-out;
+        }
+
+
+
+
+
+
+
+
+
+        /* 
+        .signup-form,
+        .login-form {
+            background: #fff;
+            padding: 40px;
+            clear: both;
+            width: 100%;
+            box-sizing: border-box;
+            height: 400px;
+        } */
+    </style>
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="header">
+                <div class="total">Total Scores</div>
+                <div class="task1">Task-1 Scores</div>
+                <div class="task2">Task 2 Scores</div>
+                <div class="task3">Task 3 Scores</div>
+            </div>
+            <div class="totalscore">
+                <ol>
+                    <li>
+                        <mark>Jerry Wood</mark>
+                        <small>315</small>
+                    </li>
+                    <li>
+                        <mark>Brandon Barnes</mark>
+                        <small>301</small>
+                    </li>
+                    <li>
+                        <mark>Raymond Knight</mark>
+                        <small>292</small>
+                    </li>
+                    <li>
+                        <mark>Trevor McCormick</mark>
+                        <small>245</small>
+                    </li>
+                    <li>
+                        <mark>Andrew Fox</mark>
+                        <small>203</small>
+                    </li>
+                    <li>
+                        <mark>Andrew Fox</mark>
+                        <small>203</small>
+                    </li>
+                    <li>
+                        <mark>Andrew Fox</mark>
+                        <small>203</small>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="task1score">
+                <ol>
+                    <li>
+                        <mark>Brandon Barnes</mark>
+                        <small>315</small>
+                    </li>
+                    <li>
+                        <mark>Jerry Wood</mark>
+                        <small>301</small>
+                    </li>
+                    <li>
+                        <mark>Raymond Knight</mark>
+                        <small>292</small>
+                    </li>
+                    <li>
+                        <mark>Trevor McCormick</mark>
+                        <small>245</small>
+                    </li>
+                    <li>
+                        <mark>Trevor McCormick</mark>
+                        <small>245</small>
+                    </li>
+                    <li>
+                        <mark>Trevor McCormick</mark>
+                        <small>245</small>
+                    </li>
+                    <li>
+                        <mark>Andrew Fox</mark>
+                        <small>203</small>
+                    </li>
+                </ol>
+            </div>
+            <div class="task2score">
+                <ol>
+                    <li>
+                        <mark>Hi There</mark>
+                        <small>315</small>
+                    </li>
+                    <li>
+                        <mark>Brandon Barnes</mark>
+                        <small>301</small>
+                    </li>
+                    <li>
+                        <mark>Brandon Barnes</mark>
+                        <small>301</small>
+                    </li>
+                    <li>
+                        <mark>Brandon Barnes</mark>
+                        <small>301</small>
+                    </li>
+                    <li>
+                        <mark>Brandon Barnes</mark>
+                        <small>301</small>
+                    </li>
+                    <li>
+                        <mark>Trevor McCormick</mark>
+                        <small>245</small>
+                    </li>
+                    <li>
+                        <mark>Andrew Fox</mark>
+                        <small>203</small>
+                    </li>
+                </ol>
+            </div>
+            <div class="task3score">
+                <ol>
+                    <li>
+                        <mark>Woo Hoo</mark>
+                        <small>315</small>
+                    </li>
+                    <li>
+                        <mark>Brandon Barnes</mark>
+                        <small>301</small>
+                    </li>
+                    <li>
+                        <mark>Raymond Knight</mark>
+                        <small>292</small>
+                    </li>
+                    <li>
+                        <mark>Raymond Knight</mark>
+                        <small>292</small>
+                    </li>
+                    <li>
+                        <mark>Raymond Knight</mark>
+                        <small>292</small>
+                    </li>
+                    <li>
+                        <mark>Trevor McCormick</mark>
+                        <small>245</small>
+                    </li>
+                    <li>
+                        <mark>Andrew Fox</mark>
+                        <small>203</small>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(".task1score").hide();
+        $(".task2score").hide();
+        $(".task3score").hide();
+        $(".task1").css("background", "none");
+        $(".task2").css("background", "none");
+        $(".task3").css("background", "none");
+
+        $(".total").click(function () {
+            $(".task1score").hide();
+            $(".task2score").hide();
+            $(".task3score").hide();
+            $(".totalscore").show();
+            $(".task1").css("background", "none");
+            $(".task2").css("background", "none");
+            $(".task3").css("background", "none");
+            $(".total").css("background", "#6aa8fa");
+
+        });
+
+        $(".task1").click(function () {
+            $(".totalscore").hide();
+            $(".task2score").hide();
+            $(".task3score").hide();
+            $(".task1score").show();
+            $(".total").css("background", "none");
+            $(".task2").css("background", "none");
+            $(".task3").css("background", "none");
+            $(".task1").css("background", "#6aa8fa");
+        });
+
+        $(".task2").click(function () {
+            $(".totalscore").hide();
+            $(".task1score").hide();
+            $(".task3score").hide();
+            $(".task2score").show();
+            $(".total").css("background", "none");
+            $(".task1").css("background", "none");
+            $(".task3").css("background", "none");
+            $(".task2").css("background", "#6aa8fa");
+        });
+
+        $(".task3").click(function () {
+            $(".totalscore").hide();
+            $(".task2score").hide();
+            $(".task1score").hide();
+            $(".task3score").show();
+            $(".total").css("background", "none");
+            $(".task2").css("background", "none");
+            $(".task1").css("background", "none");
+            $(".task3").css("background", "#6aa8fa");
+        });
+    </script>
+
+</body>
+
+</html>
