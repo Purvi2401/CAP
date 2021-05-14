@@ -21,10 +21,37 @@
 <body>
 	<style>
 		body {
-			margin: 0;
+			margin: 0 !important;
+			padding: 0 !important;
 			color: #6a6f8c;
 			background: #222C32;
 			font: 600 16px/18px 'Open Sans', sans-serif;
+		}
+
+		nav {
+			background: #03131f73 !important;
+			height: 80px;
+		}
+
+		.nav-link {
+			text-decoration: none;
+			color: #1ca3d8b6 !important;
+			padding-right: 10px !important;
+			font-weight: 600;
+		}
+
+		.navbar-brand img {
+			margin: 0 0 0 0 !important;
+			padding: 15px 0 0 20px !important;
+			height: 90px;
+		}
+
+		.navbar-nav {
+			padding-right: 60px;
+		}
+
+		.navbar-collapse.in {
+			display: block !important;
 		}
 
 		*,
@@ -211,13 +238,11 @@
 			text-align: center;
 		}
 
-		nav {
-			background: #03131f73 !important;
-			color:#1ca3d8b6 ;
-		}
+		.fas { font-family: 'FontAwesome' !important; }
+
 	</style>
 	<nav class="navbar navbar-expand-lg fixed-top">
-		<div class="container">
+		<div class="container-fluid">
 			<a class="navbar-brand" href="#"><img src="https://www.edcnitd.co.in/static/img/logo.png" alt=""
 					height="60px"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"

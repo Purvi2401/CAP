@@ -7,7 +7,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Login</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
-	<!-- <link rel="stylesheet" href="css/styles2.css" /> -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -59,11 +58,22 @@
 		}
 
 		.navbar-nav {
-			padding-right: 30px;
+			padding-right: 60px;
 		}
 
+		.navbar button {
+			margin: 5px;
+			padding-bottom: 5px;
+		}
+
+		.navbar-collapse.in {
+			display: block !important;
+		}
+
+		.fas { font-family: 'FontAwesome' !important; }
+
 		.container {
-			margin: 65px 0 0 0;
+			margin: 85px 0 0 0;
 			max-width: 700px;
 			width: 100%;
 			position: absolute;
@@ -200,10 +210,6 @@
 			cursor: pointer;
 			transition: all 0.3s ease;
 		}
-
-		/* select {
-			margin-top: -50px !important;
-		} */
 
 		@media(max-width: 992px) {
 			.navbar-brand img {
