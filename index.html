@@ -132,14 +132,14 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quisquam minus culpa
                             explicabo
                             eum
-                            ipsa libero non quasi molestiae sit, nostrum reiciendis numquam aut! Quo! <span
-                                id="dots">....</span><span id="more">
+                            ipsa libero non quasi molestiae sit, nostrum reiciendis numquam aut! Quo!
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil distinctio error
                                 harum quis, nam maiores mollitia numquam atque provident sit.</span>
-                        
+                            </p>
                         <br>
-                        <button onclick="read_more_less()" class="btn btn-primary mb1 bg-blue" id="mybtn">Read
-                            More</button></p>
+                        <a href="javascript:void();">
+                            <button class="btn btn-primary mb1 bg-blue mybtn" id="mybtn">Read
+                                More</button></a>
                     </div>
                 </div>
 
@@ -155,14 +155,14 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quisquam minus culpa
                             explicabo
                             eum
-                            ipsa libero non quasi molestiae sit, nostrum reiciendis numquam aut! Quo! <span
-                                id="dots">....</span><span id="more">
+                            ipsa libero non quasi molestiae sit, nostrum reiciendis numquam aut! Quo!
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil distinctio error
-                                harum quis, nam maiores mollitia numquam atque provident sit.</span>
-                        
+                                harum quis, nam maiores mollitia numquam atque provident sit.
+                            </p>
                         <br>
-                        <button onclick="read_more_less()" class="btn btn-primary mb1 bg-blue" id="mybtn">Read
-                            More</button></p>
+                        <a href="javascript:void();">
+                            <button class="btn btn-primary mb1 bg-blue mybtn" id="mybtn">Read
+                                More</button></a>
                     </div>
                 </div>
 
@@ -176,13 +176,15 @@
                         <h5 class="card-title para">ORGANIZING</h5>
                         <p class="card-text yolo">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quisquam minus culpa
-                            explicabo eum ipsa libero non quasi molestiae sit, nostrum reiciendis numquam aut! Quo!
-                            <span id="dots">....</span><span id="more">
+                            explicabo
+                            eum
+                            ipsa libero non quasi molestiae sit, nostrum reiciendis numquam aut! Quo!
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil distinctio error
-                                harum quis, nam maiores mollitia numquam atque provident sit.</span>
-                    
-                        <button onclick="read_more_less()" class="btn btn-primary bg-blue" id="mybtn">Read
-                            More</button></p>
+                                harum quis, nam maiores mollitia numquam atque provident sit.
+                            </p>
+                        <br><a href="javascript:void();">
+                        <button class="btn btn-primary mb1 bg-blue mybtn" id="mybtn">Read
+                            More</button></a>
                     </div>
                 </div>
             </div>
@@ -212,21 +214,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
         <script>
-            var i=0;
-            function read_more_less() {
-                if(!i){
-                var dots = document.getElementById("dots").style.display="none";
-                var moretext = document.getElementById("more").style.display="flex";
-                var mybtn = document.getElementById("mybtn"),innerHTML="Read Less";
-                i=1;
-                }
-                else{
-                var dots = document.getElementById("dots").style.display="flex";
-                var moretext = document.getElementById("more").style.display="none";
-                var mybtn = document.getElementById("mybtn"),innerHTML="Read More";
-                i=0;
-                }
-            }
+           $(".mybtn").on('click',function(){
+               $(this).parent().toggleClass("showContent");
+           }); 
         </script>
     </section>
     <section class="para" id="perks">
@@ -515,6 +505,7 @@
         $(window).scroll(function () {
             $('.nav-link').toggleClass('scrolled', $(this).scrollTop() > 250);
         });
+
     </script>
 </body>
 
